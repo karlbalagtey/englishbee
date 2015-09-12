@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>The EnglishBee - English Vocabulary Game - Software Engineering - UC 2015</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+	</head>
+	<body>
+		<img class="beeImg img-responsive" src="img/bee.png" />
+		<section class="container">
+			<header class="text-center">
+				<h1>The English Bee</h1>
+				<h3>English Vocabulary Game</h3>
+			</header>
+
+			<div class="mainScreenbg">
+				<audio id="audioTag">
+					<source src="audio/oldies.mp3" type="audio/mpeg">
+					Your browser does not support the audio element.
+				</audio>
+				<nav id="navID" class="navClass">
+					<h2 class="text-center">Welcome to English Bee Game</h2>
+					<h3 class="text-center">Main Menu</h3>
+					<a class="btn btn-warning btn-lg btn-block" onclick="newGame();">Start Game</a>
+					<a class="btn btn-warning btn-lg btn-block" onclick="showInstr(document.getElementById('instructions'));">Instructions</a>
+				</nav>
+				<div id="playerName" class="settingGame playerName">
+					<form>
+						<div class="form-group">
+					    	<input id="nameValue" style="height: 60px; font-size: 30px;" type="name" class="form-control" id="enterPlayerName" placeholder="Enter player name here">
+							<input type="button" class="btn btn-warning btn-block btn-lg" value="Submit" onclick="setName(document.getElementById('nameValue').value); setLevel(); startGame2();">
+						</div>
+					</form>
+				</div>
+				<div id="gameInterface" class="gameInterface">
+					<div class="top row">
+						<h1 id="nameHolder" class="pull-left">Player Name: </h1>
+						<h1 id="playerScore" class="pull-right">Score: </h1>
+					</div>
+					<div class="mid row">
+						<div id="imgHolder" class="imgHolder"></div>
+					</div>
+					<div id="answerBOX" class="foot row">
+						<input id="answer" class="form-control" style="height: 60px; font-size: 30px;" type="text" placeholder="Type the answer here">
+						<input type="submit" value="Submit Answer" class="btn btn-warning btn-lg" onclick="checkAnswer(document.getElementById('answer').value);">
+					</div>
+				</div>
+				<div id="difficultyLevel" class="difficultyLevel levelSet">
+					<h2 class="text-center">Choose Level</h2>
+					<p><strong>Easy</strong> - Children</p>
+					<p><strong>Medium</strong> - Teenager</p>
+					<p><strong>Hard</strong> - Adult</p>
+					<a class="btn btn-primary btn-lg" onclick="setLevel('easy')">Easy</a>
+					<a class="btn btn-primary btn-lg" onclick="setLevel('medium')">Medium</a>
+					<a class="btn btn-primary btn-lg" onclick="setLevel('hard')">Hard</a>
+					<span class="glyphicon glyphicon-remove-sign" onclick="hideMenu(parentNode.id);"></span>
+				</div>
+				<div id="instructions" class="instructions instructionSet text-center">
+					<h1>Instructions:</h1>
+					<p>To start a new game select Start Game</p>
+					<br>
+					<p>Choosing Difficulty Level</p>
+					<p><strong>Easy</strong> - Children - 2yrs to 12yrs old</p>
+					<p><strong>Medium</strong> - Teenager - 13yrs to 19yrs old</p>
+					<p><strong>Hard</strong> - Adult</p>
+					<br>
+					<p>Music Controls are at the bottom of the page - Play and Pause</p>
+					<span class="glyphicon glyphicon-remove-sign" onclick="hideMenu(parentNode.id);"></span>
+				</div>
+				<div id="playAgain" class="playagainHide playagain text-center">
+					<h1>You won the Game!</h1>
+					<a class="btn btn-warning btn-lg btn-block" onclick="newGame();">Start a new game?</a>
+					<h1>Or Pick another level</h1>
+					<a class="btn btn-primary btn-lg" onclick="startGame2('easy')">Easy</a>
+					<a class="btn btn-primary btn-lg" onclick="startGame2('medium')">Medium</a>
+					<a class="btn btn-primary btn-lg" onclick="startGame2('hard')">Hard</a>
+					<div id="audioBox1"></div>
+				</div>
+				<div id="playAgainLost" class="playagainHideLost playagainLost text-center">
+					<h1>You lost the Game!</h1>
+					<a class="btn btn-warning btn-lg btn-block" onclick="newGame();">Start a new game?</a>
+					<h1>Or Pick another level</h1>
+					<a class="btn btn-primary btn-lg" onclick="startGame2('easy')">Easy</a>
+					<a class="btn btn-primary btn-lg" onclick="startGame2('medium')">Medium</a>
+					<a class="btn btn-primary btn-lg" onclick="startGame2('hard')">Hard</a>
+					<div id="audioBox2"></div>
+				</div>
+			</div>
+			<div class="audioControls">
+				<small>Jukebox</small>
+				<span class="glyphicon glyphicon-play" onclick="playMusic();"></span>
+				<span class="glyphicon glyphicon-pause" onclick="pauseMusic();"></span>
+			</div>
+		</section>
+	<script src="js/main.js" type="text/javascript"></script>
+	</body>
+</html>
